@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Syntax Lab - Level 2 Computing</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- TOP HEADER & PROGRESS -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="brand">
+                <div class="logo-icon">🐍</div>
+                <div>
+                    <h1>PYTHON SYNTAX LAB</h1>
+                    <p class="subtitle">Gateway Level 2 Computer Programming • Week 4</p>
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <div class="progress-badge">
+                    <span id="progress-text">0 / 13 Sections</span>
+                    <div class="progress-bar-track">
+                        <div class="progress-bar-fill" id="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+                <button class="btn btn-outline btn-sm" id="theme-toggle-btn" title="Toggle Dark/Light Mode">
+                    🌙 Dark Mode
+                </button>
+                <button class="btn btn-outline btn-sm" id="reset-progress-btn" title="Reset Lab Progress">
+                    🔄 Reset
+                </button>
+            </div>
+        </div>
+
+        <!-- SECTION NAV BAR -->
+        <nav class="section-nav" id="section-nav">
+            <div class="nav-scroll-container">
+                <button class="nav-btn active" data-section="1">1. Recap</button>
+                <button class="nav-btn" data-section="2">2. Variables</button>
+                <button class="nav-btn" data-section="3">3. IPO Flow</button>
+                <button class="nav-btn" data-section="4">4. Interactive Input</button>
+                <button class="nav-btn" data-section="5">5. Bug Hunter 🐛</button>
+                <button class="nav-btn" data-section="6">6. input() Trap</button>
+                <button class="nav-btn" data-section="7">7. int vs float</button>
+                <button class="nav-btn" data-section="8">8. Operators</button>
+                <button class="nav-btn" data-section="9">9. Ticket Machine 🎟️</button>
+                <button class="nav-btn" data-section="10">10. Code Order</button>
+                <button class="nav-btn" data-section="11">11. Syntax Lab</button>
+                <button class="nav-btn" data-section="12">12. Final Boss 👾</button>
+                <button class="nav-btn" data-section="13">13. Create Project</button>
+                <button class="nav-btn nav-btn-accent" data-section="14">🎯 Final Check</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-container">
+
+        <!-- ==================== SECTION 1 ==================== -->
+        <section class="lab-section active" id="section-1">
+            <div class="section-header">
+                <span class="section-tag">SECTION 1</span>
+                <h2>Wake Up Your Programmer Brain 🧠</h2>
+                <p>Identify the correct Python data type for each value shown below!</p>
+            </div>
+
+            <div class="card card-hero">
+                <div class="recap-container">
+                    <div class="recap-card">
+                        <div class="recap-progress" id="recap-counter">Question 1 of 8</div>
+                        <div class="code-box-display">
+                            <span class="code-value" id="recap-current-val">"Manu"</span>
+                        </div>
+                        <p class="prompt-text">What Python data type is this value?</p>
+                        <div class="datatype-buttons" id="recap-options">
+                            <button class="btn btn-choice" data-type="STRING">STRING</button>
+                            <button class="btn btn-choice" data-type="INTEGER">INTEGER</button>
+                            <button class="btn btn-choice" data-type="FLOAT">FLOAT</button>
+                            <button class="btn btn-choice" data-type="BOOLEAN">BOOLEAN</button>
+                        </div>
+                        <div class="feedback-box hidden" id="recap-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- SPECIAL EXPLANATION BANNER FOR 42 VS "42" -->
+                <div class="info-callout" id="recap-highlight-box">
+                    <div class="callout-icon">💡</div>
+                    <div class="callout-content">
+                        <h4>Crucial Python Rule!</h4>
+                        <p>Notice the quotes: <code>42</code> is an <strong>INTEGER</strong> (a whole number you can do maths with), but <code>"42"</code> is a <strong>STRING</strong> (text inside quotes)!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-primary next-section-btn" data-next="2">Continue to Section 2: Variable Builder ➔</button>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 2 ==================== -->
+        <section class="lab-section" id="section-2">
+            <div class="section-header">
+                <span class="section-tag">SECTION 2</span>
+                <h2>Variable Builder 📦</h2>
+                <p>A variable stores a value in memory and gives it a clear name.</p>
+            </div>
+
+            <div class="grid grid-2">
+                <!-- Concept Card -->
+                <div class="card">
+                    <h3>What is a Variable?</h3>
+                    <p>Think of a variable like a labelled storage box:</p>
+                    <div class="ide-code-block">
+                        <div class="ide-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span> demo.py</div>
+                        <pre><code><span class="var">name</span> = <span class="str">"Alex"</span>
+<span class="var">age</span> = <span class="num">17</span>
+<span class="var">score</span> = <span class="num">10</span></code></pre>
+                    </div>
+
+                    <h4 class="mt-4">Activity 1: Match the Pieces</h4>
+                    <p>Select the correct value & data type for each variable:</p>
+                    
+                    <div class="matching-container" id="variable-matching">
+                        <div class="matching-row" data-var="name">
+                            <span class="var-name-badge">name</span>
+                            <span>➔</span>
+                            <select class="select-input match-val">
+                                <option value="">-- Choose Value --</option>
+                                <option value="17">17</option>
+                                <option value='"Alex"'>"Alex"</option>
+                                <option value="10">10</option>
+                            </select>
+                            <span>➔</span>
+                            <select class="select-input match-type">
+                                <option value="">-- Choose Data Type --</option>
+                                <option value="integer">integer</option>
+                                <option value="string">string</option>
+                                <option value="float">float</option>
+                            </select>
+                        </div>
+
+                        <div class="matching-row" data-var="age">
+                            <span class="var-name-badge">age</span>
+                            <span>➔</span>
+                            <select class="select-input match-val">
+                                <option value="">-- Choose Value --</option>
+                                <option value="17">17</option>
+                                <option value='"Alex"'>"Alex"</option>
+                                <option value="10">10</option>
+                            </select>
+                            <span>➔</span>
+                            <select class="select-input match-type">
+                                <option value="">-- Choose Data Type --</option>
+                                <option value="integer">integer</option>
+                                <option value="string">string</option>
+                                <option value="float">float</option>
+                            </select>
+                        </div>
+
+                        <div class="matching-row" data-var="score">
+                            <span class="var-name-badge">score</span>
+                            <span>➔</span>
+                            <select class="select-input match-val">
+                                <option value="">-- Choose Value --</option>
+                                <option value="17">17</option>
+                                <option value='"Alex"'>"Alex"</option>
+                                <option value="10">10</option>
+                            </select>
+                            <span>➔</span>
+                            <select class="select-input match-type">
+                                <option value="">-- Choose Data Type --</option>
+                                <option value="integer">integer</option>
+                                <option value="string">string</option>
+                                <option value="float">float</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-secondary mt-2" id="check-matching-btn">Check Matching</button>
+                        <div class="feedback-box hidden" id="matching-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- Variable Naming Rules Card -->
+                <div class="card">
+                    <h3>Python Variable Rules ⚠️</h3>
+                    
+                    <div class="quiz-block">
+                        <p class="quiz-question">Look at this code snippet:</p>
+                        <div class="ide-code-block error-line">
+                            <pre><code><span class="err">student name</span> = <span class="str">"Alex"</span></code></pre>
+                        </div>
+                        <p>Is this a valid Python variable name?</p>
+                        <div class="button-group" id="var-rule-q1">
+                            <button class="btn btn-choice" data-answer="yes">YES, it's fine</button>
+                            <button class="btn btn-choice" data-answer="no">NO, it has an error</button>
+                        </div>
+                        <div class="feedback-box hidden" id="var-rule-q1-feedback"></div>
+                    </div>
+
+                    <hr class="divider">
+
+                    <div class="quiz-block mt-4">
+                        <p class="quiz-question">Compare these two variable names for storing a student's age:</p>
+                        <div class="code-comparison">
+                            <div class="code-pill">Option A: <code>x = 17</code></div>
+                            <div class="code-pill">Option B: <code>student_age = 17</code></div>
+                        </div>
+                        <p>Which variable name is better and easier to understand?</p>
+                        <div class="button-group" id="var-rule-q2">
+                            <button class="btn btn-choice" data-answer="A">Option A (x)</button>
+                            <button class="btn btn-choice" data-answer="B">Option B (student_age)</button>
+                        </div>
+                        <div class="feedback-box hidden" id="var-rule-q2-feedback"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-primary next-section-btn" data-next="3">Continue to Section 3: Input → Process → Output ➔</button>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 3 ==================== -->
+        <section class="lab-section" id="section-3">
+            <div class="section-header">
+                <span class="section-tag">SECTION 3</span>
+                <h2>Input → Process → Output 🔄</h2>
+                <p>Every computer program follows this fundamental 3-step pattern!</p>
+            </div>
+
+            <!-- Visual Flow Diagram -->
+            <div class="ipo-flow-diagram">
+                <div class="ipo-step ipo-input">
+                    <div class="ipo-badge">1. INPUT</div>
+                    <div class="ipo-desc">Collect data (e.g. number of tickets)</div>
+                </div>
+                <div class="ipo-arrow">➔</div>
+                <div class="ipo-step ipo-process">
+                    <div class="ipo-badge">2. PROCESS</div>
+                    <div class="ipo-desc">Do calculations (tickets × ticket price)</div>
+                </div>
+                <div class="ipo-arrow">➔</div>
+                <div class="ipo-step ipo-output">
+                    <div class="ipo-badge">3. OUTPUT</div>
+                    <div class="ipo-desc">Display result (show total price)</div>
+                </div>
+            </div>
+
+            <div class="card card-hero mt-4">
+                <h3>🎟️ Real Example: Cinema Ticket Machine</h3>
+                <p>Drag or click the code lines below to arrange them into the correct execution order!</p>
+
+                <div class="reorder-challenge" id="ipo-reorder">
+                    <div class="reorder-list" id="ipo-draggable-list">
+                        <!-- Initial scrambled order -->
+                        <div class="drag-item" data-id="total" draggable="true">
+                            <span class="drag-handle">☰</span>
+                            <code>total = tickets * price</code>
+                            <span class="step-tag">PROCESS</span>
+                        </div>
+                        <div class="drag-item" data-id="tickets" draggable="true">
+                            <span class="drag-handle">☰</span>
+                            <code>tickets = 3</code>
+                            <span class="step-tag">INPUT DATA</span>
+                        </div>
+                        <div class="drag-item" data-id="print" draggable="true">
+                            <span class="drag-handle">☰</span>
+                            <code>print(total)</code>
+                            <span class="step-tag">OUTPUT</span>
+                        </div>
+                        <div class="drag-item" data-id="price" draggable="true">
+                            <span class="drag-handle">☰</span>
+                            <code>price = 8.50</code>
+                            <span class="step-tag">INPUT DATA</span>
+                        </div>
+                    </div>
+
+                    <div class="controls-row">
+                        <button class="btn btn-secondary" id="check-ipo-order">Check Code Order</button>
+                        <button class="btn btn-outline" id="reset-ipo-order">Reset Order</button>
+                    </div>
+                    <div class="feedback-box hidden" id="ipo-order-feedback"></div>
+                </div>
+
+                <!-- EXPLANATION AFTER COMPLETION -->
+                <div class="info-callout hidden" id="ipo-explanation">
+                    <div class="callout-icon">💡</div>
+                    <div class="callout-content">
+                        <h4>Why this order matters:</h4>
+                        <ul>
+                            <li><strong>INPUT / DATA:</strong> First create <code>tickets = 3</code> and <code>price = 8.50</code> so Python knows their values.</li>
+                            <li><strong>PROCESS:</strong> Calculate <code>total = tickets * price</code> using those variables.</li>
+                            <li><strong>OUTPUT:</strong> Finally <code>print(total)</code> to display the calculated result on screen.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-primary next-section-btn" data-next="4">Continue to Section 4: Make It Interactive ➔</button>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 4 ==================== -->
+        <section class="lab-section" id="section-4">
+            <div class="section-header">
+                <span class="section-tag">SECTION 4</span>
+                <h2>Make The Program Interactive 💬</h2>
+                <p>Learn how <code>input()</code> lets real users type information into your Python program!</p>
+            </div>
+
+            <div class="grid grid-2">
+                <!-- Concept & Simulator -->
+                <div class="card">
+                    <h3>Using <code>input()</code></h3>
+                    <p><code>input()</code> pauses the program and waits for the user to type something on their keyboard.</p>
+                    
+                    <div class="ide-code-block">
+                        <div class="ide-header">greeting.py</div>
+                        <pre><code><span class="var">name</span> = <span class="func">input</span>(<span class="str">"What is your name? "</span>)
+<span class="func">print</span>(<span class="str">"Hello"</span>, <span class="var">name</span>)</code></pre>
+                    </div>
+
+                    <h4 class="mt-4">Try It Now in the Terminal Simulator!</h4>
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <span class="term-dot red"></span>
+                            <span class="term-dot yellow"></span>
+                            <span class="term-dot green"></span>
+                            <span>Python Interactive Console</span>
+                        </div>
+                        <div class="terminal-body" id="section4-terminal">
+                            <div class="term-line">What is your name?</div>
+                            <div class="term-input-line">
+                                <span class="prompt">&gt;&gt;&gt;</span>
+                                <input type="text" id="sec4-user-input" class="term-input" placeholder="Type your name here and press Enter...">
+                                <button class="btn btn-sm btn-accent" id="sec4-submit-btn">Enter</button>
+                            </div>
+                            <div class="term-output hidden" id="sec4-term-output"></div>
+                        </div>
+                    </div>
+
+                    <!-- VISUAL HIGHLIGHT -->
+                    <div class="visual-breakdown hidden" id="sec4-breakdown">
+                        <div class="breakdown-chip chip-input">
+                            <strong>INPUT:</strong> <code>input()</code> asked the question
+                        </div>
+                        <div class="breakdown-chip chip-var">
+                            <strong>VARIABLE:</strong> <code>name</code> stored what you typed
+                        </div>
+                        <div class="breakdown-chip chip-output">
+                            <strong>OUTPUT:</strong> <code>print()</code> displayed the greeting
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREDICT THE OUTPUT CHALLENGE -->
+                <div class="card">
+                    <h3>🎯 Challenge: Predict The Output</h3>
+                    <p>Look carefully at this program:</p>
+
+                    <div class="ide-code-block">
+                        <pre><code><span class="var">food</span> = <span class="func">input</span>(<span class="str">"Favourite food: "</span>)
+<span class="func">print</span>(<span class="str">"You like"</span>, <span class="var">food</span>)</code></pre>
+                    </div>
+
+                    <p class="mt-3"><strong>Question:</strong> What information changes depending on what the user types?</p>
+
+                    <div class="button-stack" id="sec4-predict-options">
+                        <button class="btn btn-choice text-left" data-option="A">A) <code>food</code> (the variable)</button>
+                        <button class="btn btn-choice text-left" data-option="B">B) <code>print</code></button>
+                        <button class="btn btn-choice text-left" data-option="C">C) Python</button>
+                        <button class="btn btn-choice text-left" data-option="D">D) Nothing</button>
+                    </div>
+
+                    <div class="feedback-box hidden" id="sec4-predict-feedback"></div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-primary next-section-btn" data-next="5">Continue to Section 5: Bug Hunter 🐛 ➔</button>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 5 ==================== -->
+        <section class="lab-section" id="section-5">
+            <div class="section-header">
+                <span class="section-tag">SECTION 5</span>
+                <h2>Bug Hunter 🐛</h2>
+                <p>Find and fix common Python syntax errors! Click on the options to debug each code snippet.</p>
+            </div>
+
+            <div class="bug-hunter-container" id="bug-hunter-app">
+                <div class="bug-tabs">
+                    <button class="bug-tab active" data-bug="1">Bug 1 🐛</button>
+                    <button class="bug-tab" data-bug="2">Bug 2 🐛</button>
+                    <button class="bug-tab" data-bug="3">Bug 3 🐛</button>
+                    <button class="bug-tab" data-bug="4">Bug 4 🐛</button>
+                </div>
+
+                <div class="card card-hero">
+                    <!-- BUG 1 -->
+                    <div class="bug-challenge-panel active" id="bug-panel-1">
+                        <div class="bug-header-line">
+                            <span class="badge badge-warning">Challenge 1 of 4</span>
+                            <h4>Identify the Error</h4>
+                        </div>
+                        <div class="ide-code-block error-line">
+                            <pre><code><span class="var">name</span> = <span class="func">input</span>(<span class="err">"What is your name?)</span>
+<span class="func">print</span>(<span class="str">"Hello"</span>, <span class="var">name</span>)</code></pre>
+                        </div>
+                        <p class="question-prompt">What is wrong with line 1?</p>
+                        <div class="button-stack" id="bug1-options">
+                            <button class="btn btn-choice text-left" data-answer="wrong1">The variable name <code>name</code> is illegal.</button>
+                            <button class="btn btn-choice text-left" data-answer="correct">Missing closing quotation mark <code>"</code> inside <code>input()</code>.</button>
+                            <button class="btn btn-choice text-left" data-answer="wrong2"><code>print</code> must be capitalised.</button>
+                        </div>
+                        <div class="feedback-box hidden" id="bug1-feedback"></div>
+                    </div>
+
+                    <!-- BUG 2 -->
+                    <div class="bug-challenge-panel hidden" id="bug-panel-2">
+                        <div class="bug-header-line">
+                            <span class="badge badge-warning">Challenge 2 of 4</span>
+                            <h4>Identify the Error</h4>
+                        </div>
+                        <div class="ide-code-block error-line">
+                            <pre><code><span class="var">name</span> = <span class="func">input</span>(<span class="str">"Name: "</span>)
+<span class="err">prnt</span>(<span class="str">"Hello"</span>, <span class="var">name</span>)</code></pre>
+                        </div>
+                        <p class="question-prompt">Why does Python show a <code>NameError</code> when running this code?</p>
+                        <div class="button-stack" id="bug2-options">
+                            <button class="btn btn-choice text-left" data-answer="correct"><code>print</code> is misspelled as <code>prnt</code>.</button>
+                            <button class="btn btn-choice text-left" data-answer="wrong1"><code>"Name: "</code> needs to be an integer.</button>
+                            <button class="btn btn-choice text-left" data-answer="wrong2">Comma is missing after <code>"Hello"</code>.</button>
+                        </div>
+                        <div class="feedback-box hidden" id="bug2-feedback"></div>
+                    </div>
+
+                    <!-- BUG 3 -->
+                    <div class="bug-challenge-panel hidden" id="bug-panel-3">
+                        <div class="bug-header-line">
+                            <span class="badge badge-warning">Challenge 3 of 4</span>
+                            <h4>Identify the Error</h4>
+                        </div>
+                        <div class="ide-code-block error-line">
+                            <pre><code><span class="err">student name</span> = <span class="func">input</span>(<span class="str">"Name: "</span>)</code></pre>
+                        </div>
+                        <p class="question-prompt">What syntax rule does this line break?</p>
+                        <div class="button-stack" id="bug3-options">
+                            <button class="btn btn-choice text-left" data-answer="wrong1">Quotation marks cannot be used with <code>input()</code>.</button>
+                            <button class="btn btn-choice text-left" data-answer="correct">Variable names cannot contain spaces (use <code>student_name</code> instead).</button>
+                            <button class="btn btn-choice text-left" data-answer="wrong2">Equal sign <code>=</code> is not allowed.</button>
+                        </div>
+                        <div class="feedback-box hidden" id="bug3-feedback"></div>
+                    </div>
+
+                    <!-- BUG 4 -->
+                    <div class="bug-challenge-panel hidden" id="bug-panel-4">
+                        <div class="bug-header-line">
+                            <span class="badge badge-warning">Challenge 4 of 4</span>
+                            <h4>Identify the Error</h4>
+                        </div>
+                        <div class="ide-code-block error-line">
+                            <pre><code><span class="func">print</span>(<span class="err">"Welcome"</span></code></pre>
+                        </div>
+                        <p class="question-prompt">What is missing from this statement?</p>
+                        <div class="button-stack" id="bug4-options">
+                            <button class="btn btn-choice text-left" data-answer="correct">Missing closing bracket <code>)</code> at the end.</button>
+                            <button class="btn btn-choice text-left" data-answer="wrong1">Missing semi-colon <code>;</code> at the end.</button>
+                            <button class="btn btn-choice text-left" data-answer="wrong2">Should use <code>input()</code> instead of <code>print()</code>.</button>
+                        </div>
+                        <div class="feedback-box hidden" id="bug4-feedback"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-primary next-section-btn" data-next="6">Continue to Section 6: The input() Trap ⚠️ ➔</button>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 6 ==================== -->
+        <section class="lab-section" id="section-6">
+            <div class="section-header">
+                <span class="section-tag">SECTION 6</span>
+                <h2>The <code>input()</code> Trap ⚠️</h2>
+                <p>This is one of the most common beginner traps in Python programming!</p>
+            </div>
+
+            <div class="card card-hero">
+                <h3>Look at this program carefully:</h3>
+                
+                <div class="ide-code-block">
+                    <pre><code><span class="var">age</span> = <span class="func">input</span>(<span class="str">"How old are you? "</span>)
+<span class="var">next_age</span> = <span class="var">age</span> + <span class="num">1</span>
+<span class="func">print</span>(<span class="var">next_age</span>)</code></pre>
+                </div>
+
+                <div class="trap-quiz-box text-center mt-4">
+                    <h2>WILL THIS PROGRAM WORK? 🤔</h2>
+                    <div class="button-group justify-center mt-3" id="trap-buttons">
+                        <button class="btn btn-lg btn-success" data-choice="YES">YES</button>
+                        <button class="btn btn-lg btn-danger" data-choice="NO">NO</button>
+                        <button class="btn btn-lg btn-secondary" data-choice="THINK">LET ME THINK</button>
+                    </div>
+                    <div class="feedback-box hidden" id="trap-feedback"></div>
+                </div>
+
+                <!-- VISUAL TRANSFORMATION FLOW -->
+                <div class="transformation-container mt-4">
+                    <h4 class="text-center">How Python processes <code>int(input())</code> step-by-step:</h4>
+                    
+                    <div class="step-flow">
+                        <div class="flow-card">
+                            <span class="step-num">1</span>
+                            <strong>USER TYPES</strong>
+                            <div class="type-pill">17</div>
+                        </div>
+
+                        <div class="flow-arrow">➔</div>
+
+                        <div class="flow-card">
+                            <span class="step-num">2</span>
+                            <strong>input() RETURNS</strong>
+                            <div class="type-pill str-pill">"17" (String)</div>
+                        </div>
+
+                        <div class="flow-arrow">➔</div>
+
+                        <div class="flow-card highlight-card">
+                            <span class="step-num">3</span>
+                            <strong>int() CONVERTS</strong>
+                            <div class="type-pill int-pill">17 (Integer)</div>
+                        </div>
+
+                        <div class="flow-arrow">➔</div>
+
+                        <div class="flow-card">
+                            <span class="step-num">4</span>
+                            <strong>CALCULATION</strong>
+                            <div class="type-pill calc-pill">17 + 1</div>
+                        </div>
+
+                        <div class="flow-arrow">➔</div>
+
+                        <div class="flow-card">
+                            <span class="step-num">5</span>
+                            <strong>OUTPUT</strong>
+                            <div class="type-pill out-pill">18</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CORRECT CODE SOLUTION -->
+                <div class="info-callout callout-success mt-4">
+                    <div class="callout-icon">✅</div>
+                    <div class="callout-content">
+                        <h4>The Correct Code:</h4>
+                        <div class="ide-code-block">
+                            <pre><code><span class="var">age</span> = <span class="func">int</span>(<span class="func">input</span>(<span class="str">"How old are you? "</span>))
+<span class="var">next_age</span> = <span class="var">age</span> + <span class="num">1</span>
+<span class="func">print</span>(<span class="str">"Next year you will be"</span>, <span class="var">next_age</span>)</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-primary next-section-btn" data-next="7">Continue to Section 7: Int or Float? ➔</button>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 7 ==================== -->
+        <section class="lab-section" id="section-7">
+            <div class="section-header">
+                <span class="section-tag">SECTION 7</span>
+                <h2><code>int()</code> or <code>float()</code>? 🔢</h2>
+                <p>Learn when to convert user input into whole numbers (int) versus decimals (float).</p>
+            </div>
+
+            <div class="grid grid-2">
+                <!-- Concept Card -->
+                <div class="card">
+                    <h3>When to use each function</h3>
+                    
+                    <div class="rule-box rule-int">
+                        <h4><code>int()</code> — Whole Numbers</h4>
+                        <p>Use for counting things that cannot be split into fractions (e.g. age, tickets, count).</p>
+                        <div class="ide-code-block">
+                            <pre><code><span class="var">age</span> = <span class="func">int</span>(<span class="func">input</span>(<span class="str">"Age: "</span>))</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="rule-box rule-float mt-3">
+                        <h4><code>float()</code> — Decimal Numbers</h4>
+                        <p>Use for measurements, prices, weights, and heights that can have decimal points.</p>
+                        <div class="ide-code-block">
+                            <pre><code><span class="var">price</span> = <span class="func">float</span>(<span class="func">input</span>(<span class="str">"Price: £"</span>))</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Classification Activity -->
+                <div class="card">
+                    <h3>Classification Challenge</h3>
+                    <p>Which function should you wrap around <code>input()</code> for each item?</p>
+
+                    <div class="classification-list" id="int-float-list">
+                        <div class="class-item" data-item="age">
+                            <span class="item-label">Age</span>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-choice" data-type="int">int()</button>
+                                <button class="btn btn-sm btn-choice" data-type="float">float()</button>
+                            </div>
+                        </div>
+
+                        <div class="class-item" data-item="tickets">
+                            <span class="item-label">Number of tickets</span>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-choice" data-type="int">int()</button>
+                                <button class="btn btn-sm btn-choice" data-type="float">float()</button>
+                            </div>
+                        </div>
+
+                        <div class="class-item" data-item="price">
+                            <span class="item-label">Ticket price (£)</span>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-choice" data-type="int">int()</button>
+                                <button class="btn btn-sm btn-choice" data-type="float">float()</button>
+                            </div>
+                        </div>
+
+                        <div class="class-item" data-item="height">
+                            <span class="item-label">Height (metres)</span>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-choice" data-type="int">int()</button>
+                                <button class="btn btn-sm btn-choice" data-type="float">float()</button>
+                            </div>
+                        </div>
+
+                        <div class="class-item" data-item="students">
+                            <span class="item-label">Number of students</span>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-choice" data-type="int">int()</button>
+                                <button class="btn btn-sm btn-choice" data-type="float">float()</button>
+                            </div>
+                        </div>
+
+                        <div class="class-item" data-item="temperature">
+                            <span class="item-label">Temperature (°C)</span>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-choice" data-type="int">int()</button>
+                                <button class="btn btn-sm btn-choice" data-type="float">float()</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-secondary mt-3" id="check-int-float-btn">Check Classifications</button>
+                    <div class="feedback-box hidden" id="int-float-feedback"></div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-primary next-section-btn" data-next="8">Continue to Section 8: Arithmetic Operators ➕ ➔</button>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 8 ==================== -->
+        <section class="lab-section" id="section-8">
+            <div class="section-header">
+                <span class="section-tag">SECTION 8</span>
+                <h2>Basic Arithmetic Operators ➕➖✖️➗</h2>
+                <p>Python uses standard symbols for basic mathematical calculations!</p>
+            </div>
+
+            <div class="grid grid-2">
+                <!-- Operator Match Card -->
+                <div class="card">
+                    <h3>The 4 Basic Operators</h3>
+                    <div class="operator-table">
+                        <div class="op-row">
+                            <span class="op-symbol">+</span>
+                            <span class="op-name">Addition</span>
+                            <code>10 + 5 ➔ 15</code>
+                        </div>
+                        <div class="op-row">
+                            <span class="op-symbol">-</span>
+                            <span class="op-name">Subtraction</span>
+                            <code>10 - 5 ➔ 5</code>
+                        </div>
+                        <div class="op-row">
+                            <span class="op-symbol">*</span>
+                            <span class="op-name">Multiplication</span>
+                            <code>10 * 5 ➔ 50</code>
+                        </div>
+                        <div class="op-row">
+                            <span class="op-symbol">/</span>
+                            <span class="op-name">Division</span>
+                            <code>10 / 5 ➔ 2.0</code>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prediction Challenge -->
+                <div class="card">
+                    <h3>🎯 Predict The Output Challenge</h3>
+                    <p>What value will Python display when running this code?</p>
+
+                    <div class="ide-code-block">
+                        <pre><code><span class="var">price</span> = <span class="num">5</span>
+<span class="var">quantity</span> = <span class="num">3</span>
+
+<span class="var">total</span> = <span class="var">price</span> * <span class="var">quantity</span>
+
+<span class="func">print</span>(<span class="var">total</span>)</code></pre>
+                    </div>
+
+                    <div class="input-form-inline mt-3">
+                        <label for="op-predict-input"><strong>Your Prediction:</strong></label>
+                        <input type="number" id="op-predict-input" class="text-input" placeholder="Type answer...">
+                        <button class="btn btn-accent" id="op-predict-btn">Check</button>
+                    </div>
+
+                    <div class="feedback-box hidden" id="op-predict-feedback"></div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-primary next-section-btn" data-next="9">Continue to Section 9: Build The Ticket Machine 🎟️ ➔</button>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 9 ==================== -->
+        <section class="lab-section" id="section-9">
+            <div class="section-header">
+                <span class="section-tag">SECTION 9</span>
+                <h2>BUILD IT: CINEMA TICKET MACHINE 🎟️</h2>
+                <p>Construct a complete real-world Python program step-by-step!</p>
+            </div>
+
+            <div class="card card-hero">
+                <div class="stepper-progress">
+                    <div class="step-indicator active" id="builder-step-1-ind">1. Name</div>
+                    <div class="step-indicator" id="builder-step-2-ind">2. Tickets</div>
+                    <div class="step-indicator" id="builder-step-3-ind">3. Price</div>
+                    <div class="step-indicator" id="builder-step-4-ind">4. Total</div>
+                    <div class="step-indicator" id="builder-step-5-ind">5. Display</div>
+                </div>
+
+                <div class="builder-stage-container">
+                    <!-- Step 1 -->
+                    <div class="builder-step-panel active" id="builder-panel-1">
+                        <h4>STEP 1: Ask for customer name</h4>
+                        <p>Which line correctly asks the customer for their name and saves it?</p>
+                        <div class="button-stack" id="builder-q1">
+                            <button class="btn btn-choice text-left" data-correct="true"><code>name = input("Customer name: ")</code></button>
+                            <button class="btn btn-choice text-left" data-correct="false"><code>name = print("Customer name: ")</code></button>
+                            <button class="btn btn-choice text-left" data-correct="false"><code>input = name("Customer name: ")</code></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="builder-step-panel hidden" id="builder-panel-2">
+                        <h4>STEP 2: Ask for number of tickets</h4>
+                        <p>Which line asks for tickets as a whole number (integer)?</p>
+                        <div class="button-stack" id="builder-q2">
+                            <button class="btn btn-choice text-left" data-correct="true"><code>tickets = int(input("Number of tickets: "))</code></button>
+                            <button class="btn btn-choice text-left" data-correct="false"><code>tickets = input("Number of tickets: ")</code></button>
+                            <button class="btn btn-choice text-left" data-correct="false"><code>tickets = float(input("Number of tickets: "))</code></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="builder-step-panel hidden" id="builder-panel-3">
+                        <h4>STEP 3: Set ticket price variable</h4>
+                        <p>Which line creates the price variable with £8.50?</p>
+                        <div class="button-stack" id="builder-q3">
+                            <button class="btn btn-choice text-left" data-correct="true"><code>price = 8.50</code></button>
+                            <button class="btn btn-choice text-left" data-correct="false"><code>price = "8.50"</code></button>
+                            <button class="btn btn-choice text-left" data-correct="false"><code>price == 8.50</code></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="builder-step-panel hidden" id="builder-panel-4">
+                        <h4>STEP 4: Calculate total price</h4>
+                        <p>Which line correctly multiplies tickets by price?</p>
+                        <div class="button-stack" id="builder-q4">
+                            <button class="btn btn-choice text-left" data-correct="true"><code>total = tickets * price</code></button>
+                            <button class="btn btn-choice text-left" data-correct="false"><code>total = tickets + price</code></button>
+                            <button class="btn btn-choice text-left" data-correct="false"><code>tickets * price = total</code></button>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="builder-step-panel hidden" id="builder-panel-5">
+                        <h4>STEP 5: Display receipt output</h4>
+                        <p>Select the correct set of <code>print()</code> statements:</p>
+                        <div class="button-stack" id="builder-q5">
+                            <button class="btn btn-choice text-left" data-correct="true">
+                                <code>print("Customer:", name)</code><br>
+                                <code>print("Tickets:", tickets)</code><br>
+                                <code>print("Total: £", total)</code>
+                            </button>
+                            <button class="btn btn-choice text-left" data-correct="false">
+                                <code>print(Customer name tickets total)</code>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-box hidden" id="builder-step-feedback"></div>
+
+                <!-- LIVE INTERACTIVE SIMULATED TERMINAL -->
+                <div class="live-program-section hidden" id="builder-live-terminal-container">
+                    <h3>🎉 Program Construction Complete!</h3>
+                    <p>Now test your fully built program inside the live simulated terminal below:</p>
+
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <span class="term-dot red"></span>
+                            <span class="term-dot yellow"></span>
+                            <span class="term-dot green"></span>
+                            <span>cinema_ticket_machine.py</span>
+                        </div>
+                        <div class="terminal-body" id="ticket-machine-term">
+                            <div class="term-line">=== BRISTOL CINEMA ===</div>
+                            <div class="term-step-input" id="tm-step1">
+                                <span>Customer name: </span>
+                                <input type="text" id="tm-input-name" class="term-input-inline" placeholder="Enter customer name...">
+                                <button class="btn btn-sm btn-accent" id="tm-btn-1">Submit</button>
+                            </div>
+                            <div class="term-step-input hidden" id="tm-step2">
+                                <span>Number of tickets: </span>
+                                <input type="number" id="tm-input-tickets" class="term-input-inline" placeholder="Enter number of tickets...">
+                                <button class="btn btn-sm btn-accent" id="tm-btn-2">Submit</button>
+                            </div>
+                            <div class="term-receipt hidden" id="tm-receipt-output"></div>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline mt-2" id="tm-restart-btn">🔄 Test Again</button>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-primary next-section-btn" data-next="10">Continue to Section 10: Code Order Puzzle 🧩 ➔</button>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 10 ==================== -->
+        <section class="lab-section" id="section-10">
+            <div class="section-header">
+                <span class="section-tag">SECTION 10</span>
+                <h2>Code Order Puzzle 🧩</h2>
+                <p>Python executes code line-by-line from top to bottom. Order matters!</p>
+            </div>
+
+            <div class="card card-hero">
+                <h3>Organise the Messy Code</h3>
+                <p>These code lines were shuffled! Reorder them into the correct logical execution sequence.</p>
+
+                <div class="reorder-challenge" id="puzzle-reorder">
+                    <div class="reorder-list" id="puzzle-draggable-list">
+                        <!-- Messy Order -->
+                        <div class="drag-item" data-id="p-print" draggable="true">
+                            <span class="drag-handle">☰</span>
+                            <code>print("Total: £", total)</code>
+                        </div>
+                        <div class="drag-item" data-id="p-input" draggable="true">
+                            <span class="drag-handle">☰</span>
+                            <code>quantity = int(input("Quantity: "))</code>
+                        </div>
+                        <div class="drag-item" data-id="p-calc" draggable="true">
+                            <span class="drag-handle">☰</span>
+                            <code>total = quantity * price</code>
+                        </div>
+                        <div class="drag-item" data-id="p-price" draggable="true">
+                            <span class="drag-handle">☰</span>
+                            <code>price = 4.50</code>
+                        </div>
+                    </div>
+
+                    <div class="controls-row">
+                        <button class="btn btn-secondary" id="check-puzzle-btn">Check Sequence</button>
+                        <button class="btn btn-outline" id="reset-puzzle-btn">Reset Order</button>
+                    </div>
+                    <div class="feedback-box hidden" id="puzzle-feedback"></div>
+                </div>
+
+                <div class="info-callout hidden" id="puzzle-explanation">
+                    <div class="callout-icon">💡</div>
+                    <div class="callout-content">
+                        <h4>Why must calculations happen after inputs?</h4>
+                        <p>Python calculates <code>total = quantity * price</code> immediately when it reaches that line. If <code>quantity</code> or <code>price</code> haven't been given values yet, Python throws a <code>NameError</code>!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-primary next-section-btn" data-next="11">Continue to Section 11: Syntax Lab 🧪 ➔</button>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 11 ==================== -->
+        <section class="lab-section" id="section-11">
+            <div class="section-header">
+                <span class="section-tag">SECTION 11</span>
+                <h2>SYNTAX LAB 🧪</h2>
+                <p>Fix ONE or TWO errors at a time in these short broken snippets!</p>
+            </div>
+
+            <div class="grid grid-2">
+                <!-- Mini Challenge 1 -->
+                <div class="card">
+                    <span class="badge badge-warning">Lab 1 of 4</span>
+                    <h4 class="mt-2">Missing Bracket</h4>
+                    <div class="ide-code-block error-line">
+                        <pre><code><span class="var">name</span> = <span class="func">input</span>(<span class="str">"Name: "</span>
+<span class="func">print</span>(<span class="str">"Hello"</span>, <span class="var">name</span>)</code></pre>
+                    </div>
+                    <p class="mt-2">Which line fixes the syntax error?</p>
+                    <div class="button-stack" id="syntax-lab-q1">
+                        <button class="btn btn-choice text-left" data-correct="true"><code>name = input("Name: ")</code></button>
+                        <button class="btn btn-choice text-left" data-correct="false"><code>name = input("Name: ";)</code></button>
+                        <button class="btn btn-choice text-left" data-correct="false"><code>name input("Name: ")</code></button>
+                    </div>
+                    <div class="feedback-box hidden" id="syntax-lab-f1"></div>
+                </div>
+
+                <!-- Mini Challenge 2 -->
+                <div class="card">
+                    <span class="badge badge-warning">Lab 2 of 4</span>
+                    <h4 class="mt-2">Missing Comma</h4>
+                    <div class="ide-code-block error-line">
+                        <pre><code><span class="var">age</span> = <span class="func">int</span>(<span class="func">input</span>(<span class="str">"Age: "</span>))
+<span class="func">print</span>(<span class="str">"You are"</span> <span class="var">age</span>)</code></pre>
+                    </div>
+                    <p class="mt-2">Fix line 2 so Python prints both string and variable:</p>
+                    <div class="button-stack" id="syntax-lab-q2">
+                        <button class="btn btn-choice text-left" data-correct="true"><code>print("You are", age)</code></button>
+                        <button class="btn btn-choice text-left" data-correct="false"><code>print("You are" + age)</code></button>
+                        <button class="btn btn-choice text-left" data-correct="false"><code>print "You are" age</code></button>
+                    </div>
+                    <div class="feedback-box hidden" id="syntax-lab-f2"></div>
+                </div>
+
+                <!-- Mini Challenge 3 -->
+                <div class="card">
+                    <span class="badge badge-warning">Lab 3 of 4</span>
+                    <h4 class="mt-2">Capital Letter Trap</h4>
+                    <div class="ide-code-block error-line">
+                        <pre><code><span class="var">price</span> = <span class="func">float</span>(<span class="func">input</span>(<span class="str">"Price: "</span>))
+<span class="var">total</span> = <span class="var">price</span> * <span class="num">2</span>
+<span class="err">Print</span>(<span class="var">total</span>)</code></pre>
+                    </div>
+                    <p class="mt-2">What is wrong with line 3?</p>
+                    <div class="button-stack" id="syntax-lab-q3">
+                        <button class="btn btn-choice text-left" data-correct="true">Python functions are case-sensitive: <code>print()</code> must be lowercase!</button>
+                        <button class="btn btn-choice text-left" data-correct="false"><code>total</code> cannot be multiplied by 2.</button>
+                    </div>
+                    <div class="feedback-box hidden" id="syntax-lab-f3"></div>
+                </div>
+
+                <!-- Mini Challenge 4 -->
+                <div class="card">
+                    <span class="badge badge-warning">Lab 4 of 4</span>
+                    <h4 class="mt-2">Variable Name Space</h4>
+                    <div class="ide-code-block error-line">
+                        <pre><code><span class="err">user name</span> = <span class="func">input</span>(<span class="str">"Name: "</span>)</code></pre>
+                    </div>
+                    <p class="mt-2">Select the valid corrected line:</p>
+                    <div class="button-stack" id="syntax-lab-q4">
+                        <button class="btn btn-choice text-left" data-correct="true"><code>user_name = input("Name: ")</code></button>
+                        <button class="btn btn-choice text-left" data-correct="false"><code>user name = input("Name: ")</code></button>
+                        <button class="btn btn-choice text-left" data-correct="false"><code>"user name" = input("Name: ")</code></button>
+                    </div>
+                    <div class="feedback-box hidden" id="syntax-lab-f4"></div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-primary next-section-btn" data-next="12">Continue to Section 12: Final Boss 👾 ➔</button>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 12 ==================== -->
+        <section class="lab-section" id="section-12">
+            <div class="section-header">
+                <span class="section-tag">SECTION 12</span>
+                <h2>FINAL BOSS: FIX THE PROGRAM 👾</h2>
+                <p>This Climbing Centre ticket system has MULTIPLE syntax bugs. Can you fix them all?</p>
+            </div>
+
+            <div class="card card-hero">
+                <h3>Climbing Centre Code</h3>
+                
+                <div class="ide-code-block error-line">
+                    <pre><code><span class="func">print</span>(<span class="str">"CLIMBING CENTRE"</span>)
+
+<span class="var">name</span> = <span class="func">input</span>(<span class="str">"What is your name? "</span>)
+
+<span class="err">entries = input("How many entries? ")</span>
+
+<span class="var">price</span> = <span class="num">9.50</span>
+
+<span class="var">total</span> = <span class="var">entries</span> * <span class="var">price</span>
+
+<span class="err">print("Customer:" name)</span>
+
+<span class="err">print("Total: £", total</span></code></pre>
+                </div>
+
+                <!-- HINT TOGGLES -->
+                <div class="hints-row mt-3">
+                    <button class="btn btn-outline btn-sm" id="boss-hint1-btn">💡 Hint 1: Check entries input</button>
+                    <button class="btn btn-outline btn-sm" id="boss-hint2-btn">💡 Hint 2: Check print commas</button>
+                    <button class="btn btn-outline btn-sm" id="boss-hint3-btn">💡 Hint 3: Check brackets</button>
+                </div>
+
+                <div class="hints-container mt-2">
+                    <div class="hint-pill hidden" id="boss-hint1-text">Hint 1: <code>input()</code> returns a string. Wrap <code>int()</code> around it to multiply entries by price!</div>
+                    <div class="hint-pill hidden" id="boss-hint2-text">Hint 2: Line 9 is missing a comma between <code>"Customer:"</code> and <code>name</code>.</div>
+                    <div class="hint-pill hidden" id="boss-hint3-text">Hint 3: Line 11 is missing a closing bracket <code>)</code> at the end.</div>
+                </div>
+
+                <h4 class="mt-4">Fix the 3 broken lines below:</h4>
+
+                <div class="boss-editor">
+                    <div class="boss-line-edit">
+                        <label>Line 5 (entries input):</label>
+                        <select id="boss-line5-sel" class="select-input">
+                            <option value="wrong">entries = input("How many entries? ")</option>
+                            <option value="correct">entries = int(input("How many entries? "))</option>
+                            <option value="wrong2">entries = float("How many entries? ")</option>
+                        </select>
+                    </div>
+
+                    <div class="boss-line-edit mt-2">
+                        <label>Line 9 (Customer print):</label>
+                        <select id="boss-line9-sel" class="select-input">
+                            <option value="wrong">print("Customer:" name)</option>
+                            <option value="correct">print("Customer:", name)</option>
+                            <option value="wrong2">print("Customer:" + name)</option>
+                        </select>
+                    </div>
+
+                    <div class="boss-line-edit mt-2">
+                        <label>Line 11 (Total print):</label>
+                        <select id="boss-line11-sel" class="select-input">
+                            <option value="wrong">print("Total: £", total</option>
+                            <option value="correct">print("Total: £", total)</option>
+                            <option value="wrong2">print("Total: £" total;)</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-accent btn-lg mt-3" id="check-boss-btn">Verify All Corrections</button>
+                    <div class="feedback-box hidden" id="boss-feedback"></div>
+                </div>
+
+                <!-- REVEALED CORRECT CODE -->
+                <div class="info-callout callout-success hidden" id="boss-success-code">
+                    <div class="callout-icon">🏆</div>
+                    <div class="callout-content">
+                        <h4>Full Corrected Program:</h4>
+                        <div class="ide-code-block">
+                            <pre><code><span class="func">print</span>(<span class="str">"CLIMBING CENTRE"</span>)
+
+<span class="var">name</span> = <span class="func">input</span>(<span class="str">"What is your name? "</span>)
+<span class="var">entries</span> = <span class="func">int</span>(<span class="func">input</span>(<span class="str">"How many entries? "</span>))
+
+<span class="var">price</span> = <span class="num">9.50</span>
+<span class="var">total</span> = <span class="var">entries</span> * <span class="var">price</span>
+
+<span class="func">print</span>(<span class="str">"Customer:"</span>, <span class="var">name</span>)
+<span class="func">print</span>(<span class="str">"Total: £"</span>, <span class="var">total</span>)</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-primary next-section-btn" data-next="13">Continue to Section 13: Create Your Own ➔</button>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 13 ==================== -->
+        <section class="lab-section" id="section-13">
+            <div class="section-header">
+                <span class="section-tag">SECTION 13</span>
+                <h2>CREATE YOUR OWN MINI PROGRAM 🚀</h2>
+                <p>Now open your actual Python IDE (like IDLE, Thonny, or VS Code) and write your own real program!</p>
+            </div>
+
+            <div class="grid grid-2">
+                <!-- Theme Choices -->
+                <div class="card">
+                    <h3>Choose ONE Project Idea:</h3>
+                    <div class="ideas-grid">
+                        <div class="idea-card">🍕 Pizza Order</div>
+                        <div class="idea-card">🎮 Game Shop</div>
+                        <div class="idea-card">🧗 Climbing Centre</div>
+                        <div class="idea-card">⚽ Football Tickets</div>
+                        <div class="idea-card">🎬 Cinema</div>
+                        <div class="idea-card">☕ Café</div>
+                    </div>
+                </div>
+
+                <!-- Checklist Card -->
+                <div class="card">
+                    <h3>Programmer Checklist 📋</h3>
+                    <p>Tick off each requirement as you build your program in your IDE:</p>
+
+                    <div class="checklist-container">
+                        <label class="check-item"><input type="checkbox" class="chk-input"> I used variables</label>
+                        <label class="check-item"><input type="checkbox" class="chk-input"> I used <code>input()</code> to gather user data</label>
+                        <label class="check-item"><input type="checkbox" class="chk-input"> I used <code>int()</code> or <code>float()</code></label>
+                        <label class="check-item"><input type="checkbox" class="chk-input"> I used an arithmetic operator (<code>*</code>, <code>+</code>, <code>-</code>, <code>/</code>)</label>
+                        <label class="check-item"><input type="checkbox" class="chk-input"> My variable names make sense (e.g. <code>item_price</code>)</label>
+                        <label class="check-item"><input type="checkbox" class="chk-input"> My program runs without syntax errors</label>
+                        <label class="check-item"><input type="checkbox" class="chk-input"> I tested my program with different inputs</label>
+                    </div>
+                    <div class="checklist-progress mt-3">
+                        <span id="chk-counter-text">0 of 7 items checked</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-primary next-section-btn" data-next="14">Continue to Final Knowledge Check 🎯 ➔</button>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 14: KNOWLEDGE CHECK ==================== -->
+        <section class="lab-section" id="section-14">
+            <div class="section-header">
+                <span class="section-tag">FINAL CHECK</span>
+                <h2>Final Knowledge Check 🎯</h2>
+                <p>Answer these 8 short questions to prove your Python syntax mastery!</p>
+            </div>
+
+            <div class="card card-hero">
+                <div class="quiz-container" id="final-quiz-app">
+                    <div id="quiz-question-container">
+                        <!-- Dynamically populated via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 15: COMPLETION SCREEN ==================== -->
+        <section class="lab-section" id="section-15">
+            <div class="completion-banner">
+                <div class="trophy-anim">🏆</div>
+                <h1>PYTHON SYNTAX LAB COMPLETE ✓</h1>
+                <p class="lead">Fantastic job! You've mastered Python inputs, variables, arithmetic, and syntax debugging!</p>
+            </div>
+
+            <div class="card card-hero mt-4 text-center">
+                <h3>Today You Practised:</h3>
+                <div class="achievements-grid">
+                    <div class="achieve-pill">✓ Variables</div>
+                    <div class="achieve-pill">✓ Data Types</div>
+                    <div class="achieve-pill">✓ input()</div>
+                    <div class="achieve-pill">✓ Output</div>
+                    <div class="achieve-pill">✓ int()</div>
+                    <div class="achieve-pill">✓ float()</div>
+                    <div class="achieve-pill">✓ Operators</div>
+                    <div class="achieve-pill">✓ Syntax Rules</div>
+                    <div class="achieve-pill">✓ Debugging</div>
+                </div>
+
+                <div class="teaser-box mt-4">
+                    <h3>NEXT LESSON TEASER 🔮</h3>
+                    <p>Next week you'll learn how programs make decisions using <strong>Selection</strong>:</p>
+                    <div class="ide-code-block text-left inline-block">
+                        <pre><code><span class="keyword">if</span> score &gt; <span class="num">50</span>:
+    <span class="func">print</span>(<span class="str">"You Pass!"</span>)
+<span class="keyword">elif</span> score == <span class="num">50</span>:
+    <span class="func">print</span>(<span class="str">"Just made it!"</span>)
+<span class="keyword">else</span>:
+    <span class="func">print</span>(<span class="str">"Try again!"</span>)</code></pre>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button class="btn btn-lg btn-primary" id="restart-lab-btn">🔄 Restart Entire Lab</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="app-footer">
+        <p>Gateway Level 2 Computer Programming • Week 4 Python Syntax Lab</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
